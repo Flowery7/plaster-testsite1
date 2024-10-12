@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plastering Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+
+  <!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <style>
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .carousel-item {
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    transition: opacity 1s ease-in-out; /* Smooth fade transition */
+}
+
+/* Lighten the overlay for better image visibility */
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Lighten the overlay by reducing opacity */
+}
+
+.carousel-caption {
+    z-index: 2;
+    bottom: 30%;
+    text-align: center; /* Center the text and button */
+}
+
+/* Reduce h1 text size by 50% */
+.carousel-caption h1 {
+    font-size: 1.5rem; /* 50% of the original 3rem */
+    font-weight: 600;
+    color: white;
+}
+
+/* Button styles */
+.btn-custom {
+    background-color: #B08D4E; /* Match navigation color */
+    color: white; /* Match navigation text color */
+    padding: 5px 15px; /* Match navigation padding */
+    border: none; /* Match navigation border style */
+    border-radius: 20px; /* Match navigation border radius */
+    transition: background-color 0.3s; /* Match navigation transition */
+    text-decoration: none; /* Remove underline */
+}
+
+.btn-custom:hover {
+    background-color: #B08Dee; /* Match navigation hover color */
+    text-decoration: none; /* Maintain no underline on hover */
+}
+
+         /* Navbar styling with semi-transparent background */
+        .navbar {
+            background-color: rgba(68, 68, 68, 0.85); /* Semi-transparent background */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            transition: background-color 0.3s;
+        }
+
+        .navbar-nav a {
+            color: white;
+            font-weight: 500;
+            text-transform: none;
+            font-size: 1.1rem;
+            padding: 10px;
+        }
+
+        .navbar-nav a:hover,
+        .navbar-nav .active {
+            color: #B08D4E;
+        }
+
+        .btn-custom-navbar {
+            background-color: #B08D4E;
+            color: white;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border: none;
+        }
+
+        .btn-custom-navbar:hover {
+            background-color: #A07E44;
+            color: white;
+        }
+
+        /* Optional: Darken the background under the navbar as the user scrolls */
+        .navbar.fixed-navbar {
+            background-color: rgba(68, 68, 68, 0.95);
+        }
+
+        /* Adjust padding to make sure page content doesn't hide under navbar */
+        .content {
+            margin-top: 80px;
+        }
+    
+    /* Section Divider */
+.section-divider {
+    border: none; /* Remove default border */
+    height: 2px; /* Height of the divider */
+    background-color: #B08D4E; /* Color of the divider */
+    margin: 40px 0; /* Space above and below the divider */
+    width: 80%; /* Adjust width as needed */
+    margin-left: auto; /* Center the divider */
+    margin-right: auto; /* Center the divider */
+}
+
+    
+    /* Plastering Information Section */
+.plastering-info {
+  position: relative;
+  height: 100vh;
+  background-image: url('/plaster-first.jpg'); 
+  background-attachment: fixed; /* Parallax effect */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color */
+  text-align: center;
+}
+
+/* Overlay to dull the image */
+.plastering-info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Adjust the opacity as needed */
+  z-index: 1; /* Place overlay below text */
+}
+
+/* Ensuring text is above the overlay */
+.plastering-info h2,
+.plastering-info p {
+  position: relative; /* Ensure text is above the overlay */
+  z-index: 2; /* Place text above overlay */
+  color: white; /* Keep text color white */
+}
+
+
+
+.section-title {
+  font-size: 2.5rem; /* Adjust as needed */
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.section-description {
+  font-size: 1.2rem; /* Adjust as needed */
+  max-width: 800px; /* Limit width for readability */
+  margin: 0 auto;
+  line-height: 1.5; /* Improve readability */
+  padding: 0 20px; /* Add some padding */
+}
+
+.coverage-section {
+  background-color: #f0f0f0; /* Light gray for better contrast */
+  padding: 40px 20px;
+}
+
+.coverage-section .text-container,
+.coverage-section .testimonials-container {
+  background-color: #B08D4E; /* Matching the button color */
+  color: white; /* White text color for contrast */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow for elevation */
+  height: 100%; /* Same height for uniformity */
+  position: relative; /* For additional effects */
+  overflow: hidden; /* Ensures rounded corners are preserved */
+}
+
+.section-title {
+  font-size: 2em; /* Larger font size for section titles */
+  margin-bottom: 15px; /* Space below the title */
+  text-transform: uppercase; /* Makes title stand out */
+  position: relative; /* For text-shadow effect */
+}
+
+.intro-text {
+  font-size: 1.1em; /* Slightly larger intro text */
+  margin-bottom: 20px; /* Space below intro text */
+}
+
+.area-list {
+  list-style: none; /* Removes default list style */
+  padding: 0; /* Removes padding */
+}
+
+.area-list li {
+  display: flex; /* Use flex for icon alignment */
+  align-items: center; /* Center items vertically */
+  margin: 10px 0; /* Space between list items */
+}
+
+.area-list li i {
+  margin-right: 10px; /* Space between icon and text */
+  color: #FFC107; /* Gold color for icons */
+}
+
+.contact-title {
+  margin-top: 20px; /* Space above contact title */
+}
+
+.check-links {
+  margin-top: 15px; /* Space above check links */
+}
+
+.social-media-links {
+  margin: 10px 0; /* Space around the social links */
+}
+
+.social-media-links a {
+  color: white; /* Icon color */
+  margin-right: 15px; /* Space between icons */
+  font-size: 24px; /* Icon size */
+  transition: transform 0.3s; /* Smooth hover effect */
+}
+
+.social-media-links a:hover {
+  transform: scale(1.2); /* Scale effect on hover */
+}
+
+.contact-link {
+  color: #FFC107; /* Change this to a color that contrasts well against the background */
+  font-weight: bold; /* Bold for emphasis */
+  text-decoration: none; /* Remove underline */
+}
+
+.contact-link:hover {
+  text-decoration: underline; /* Underline on hover for clarity */
+}
+
+.testimonial {
+  font-style: italic; /* Italic for testimonials */
+  margin: 15px 0; /* Space between testimonials */
+}
+
+.testimonials-container::before {
+  content: ''; /* Add a decorative element */
+  position: absolute;
+  top: -20px; /* Position it above the container */
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Adjust to center */
+  width: 60px; /* Width of the decorative element */
+  height: 6px; /* Height of the decorative element */
+  background-color: #FFC107; /* Gold color for the decorative element */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.map-container {
+  height: 100%; /* Ensure the map takes full height */
+  border-radius: 10px; /* Rounded corners for uniformity */
+  overflow: hidden; /* Clip overflow to maintain round corners */
+}
+
+
+
+
+.services-section {
+    padding: 60px 0; /* Add padding for spacing */
+}
+
+.service-card {
+    background: #fff; /* White background for the card */
+    border: 1px solid #ddd; /* Light border for the card */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Internal padding */
+    margin: 15px 0; /* Space between cards */
+    transition: transform 0.2s; /* Smooth transition effect */
+}
+
+.service-card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.service-header {
+    background-color: #B08D4E; /* Match this color with your button color */
+    padding: 10px;
+    border-radius: 5px 5px 0 0; /* Rounded top corners */
+    color: #fff; /* White text color */
+    text-align: center; /* Center align text */
+    margin-bottom: 10px; /* Space below header */
+}
+
+.service-image {
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+}
+.services-section {
+    padding: 30px 0; /* Reduced padding */
+}
+
+#gallery {
+    margin-top: 60px; /* Reduced margin above the gallery */
+}
+
+#gallery img {
+    border-radius: 10px; /* Optional: rounded corners */
+    transition: transform 0.3s; /* Smooth zoom effect */
+}
+
+#gallery img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+footer {
+    background-color: #444444; /* Match the button color */
+    color: #fff; /* Text color */
+    padding: 8px 0;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-contact, .footer-links {
+    flex: 1;
+}
+
+.text-white a:hover {
+    color: #f0f0f0; /* Slight hover effect */
+}
+
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* Ensures proper centering */
+}
+
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+    font-size: 16px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.cookie-banner a {
+    color: #88A4E3; /* Match this to your design */
+    text-decoration: underline;
+}
+
+.cookie-button {
+    background-color: #88A4E3; /* Match this to your design */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: background-color 0.3s;
+}
+
+.cookie-button:hover {
+    background-color: #7A94C8; /* Darker shade for hover effect */
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">Master Plaster</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="#coverage">Contact</a>
+                    </li>
+                    <li class="nav-item">
+    <a class="nav-link" href="form.html">
+        <button class="btn-custom-navbar">Free Quote</button>
+    </a>
+</li>
+
+                </ul>
+            </div>
+        </div>
+        <script>
+            // Optional: Add scroll behavior to darken navbar
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('fixed-navbar');
+                } else {
+                    navbar.classList.remove('fixed-navbar');
+                }
+            });
+        </script>
+    </nav>
+
+
+  <!-- Carousel with fade effect -->
+      <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false" data-bs-keyboard="false">
+    <div class="carousel-inner">
+        <!-- First slide -->
+        <div class="carousel-item active" style="background-image: url('/plastering-service.jpg');">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Upgrade your old building with a fresh new look.</h1>
+                <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
+            </div>
+        </div>
+        <!-- Second slide -->
+        <div class="carousel-item" style="background-image: url('/rendering-services.jpg');">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Strong lasting render! For a quality finish.</h1>
+                <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
+            </div>
+        </div>
+        <!-- Third slide -->
+        <div class="carousel-item" style="background-image: url('/plastering-service.jpg');">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Transform your space with quality plastering.</h1>
+                <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
+            </div>
+        </div>
+        <!-- Fourth slide -->
+        <div class="carousel-item" style="background-image: url('/plastering-halifax.jpg');">
+            <div class="carousel-caption d-none d-md-block">
+                <h1>Exceptional plastering services, every time without fail.</h1>
+                <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- Divider -->
+<hr class="section-divider">
+  
+<!-- Plastering Information Section -->
+<section id="about" class="plastering-info">
+  <div class="container">
+    <h2 class="section-title">About Our Plastering Services</h2>
+    <p class="section-description">
+      At Master Plaster, we specialise in delivering exceptional plastering services for residential and commercial properties. Our team is dedicated to transforming spaces with quality craftsmanship and attention to detail. Whether it’s new builds, renovations, or restorations, we handle every project with care and expertise.
+    </p>
+    <p class="section-description">
+      Our projects range from intricate decorative plastering to robust rendering solutions. We use the latest techniques and high-quality materials to ensure a flawless finish. Let us help you create the perfect ambiance in your home or business.
+    </p>
+  </div>
+</section>
+
+
+<!-- Coverage Section -->
+<section id = "coverage" class="coverage-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="text-container">
+          <h2 class="section-title">Areas We Cover</h2>
+          <p class="intro-text">We provide plastering services in various areas including:</p>
+          <ul class="area-list">
+            <li><i class="fas fa-map-marker-alt"></i> Halifax</li>
+            <li><i class="fas fa-map-marker-alt"></i> Bradford</li>
+            <li><i class="fas fa-map-marker-alt"></i> Huddersfield</li>
+            <!-- Add more areas as needed -->
+          </ul>
+          
+          <h3 class="contact-title">Contact Us</h3>
+          <p>Phone: <a href="tel:+1234567890" class="contact-link">+1 234 567 890</a></p>
+          <p>Email: <a href="mailto:info@example.com" class="contact-link">info@example.com</a></p>
+          
+          <div class="social-media-links">
+            <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <!-- Add more social media links as needed -->
+          </div>
+
+          <p class="check-links">
+            Check us out on <a href="https://www.checkatrade.com" target="_blank" class="contact-link">Checkatrade</a> or 
+            <a href="https://www.yell.com" target="_blank" class="contact-link">Yell</a>.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75993.22202938075!2d-2.2234628499999998!3d53.472245449999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487a4d4c5226f5db%3A0xd9be143804fe6baa!2sManchester!5e0!3m2!1sen!2suk!4v1728479178396!5m2!1sen!2suk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonials-container text-container">
+          <h2 class="section-title">Testimonials</h2>
+          <p class="testimonial">"Fantastic service! The team was professional and did an amazing job on my plastering." - <strong style="color: #FFC107;">John Doe.</strong></p>
+          <p class="testimonial">"Highly recommend! They transformed my living room with their expert rendering." - <strong style="color: #FFC107;">Harry Hill.</strong></p>
+          <p class="testimonial">"Great quality work and very friendly staff!" - <strong style="color: #FFC107;">Doe Jane.</strong></p>
+          <p class="testimonial">"Fabulous Job. Clean and tidy work. Very impressed.." - <strong style="color: #FFC107;">Harry Hill.</strong></p>
+<p class="testimonial">"Great quality work and very friendly staff!" - <strong style="color: #FFC107;">Doe Jane.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Services Section -->
+<section class="services-section">
+  <div class="container">
+    <h2 class="text-center mb-4" style="color: grey;">Services we offer</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-header">
+            <h3>Skimming</h3>
+          </div>
+          <img src="/plastering-bradford.jpg" alt="Skimming" class="service-image">
+          <p>Skimming is a process used to create a smooth and even surface on your walls and ceilings. It involves applying a thin layer of plaster over existing surfaces to improve their appearance.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-header">
+            <h3>Rendering</h3>
+          </div>
+          <img src="/plastering-huddersfield.jpg" alt="Rendering" class="service-image">
+          <p>Rendering is the application of a mixture of sand, cement, and water to exterior walls, creating a durable finish that enhances the aesthetic appeal and weather resistance of your home.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="service-card">
+          <div class="service-header">
+            <h3>Plastering</h3>
+          </div>
+          <img src="/skimming-halifax.jpg" alt="Plastering" class="service-image">
+          <p>Plastering involves applying a layer of plaster to walls and ceilings to create a flat, smooth surface ready for painting or wallpapering, enhancing both beauty and durability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Gallery Section -->
+<section id="gallery" class="my-5">
+    <div class="container">
+       <h2 class="text-center mb-4" style="color: grey;">Gallery of our work</h2>
+        
+        <div id="carouselGallery" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="/plaster-first.jpg" class="d-block w-100" alt="Gallery Image 1">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="/rendering-services.jpg" class="d-block w-100" alt="Gallery Image 2">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="/skimming-services.jpg" class="d-block w-100" alt="Gallery Image 3">
+                        </div>
+                        <div class="col-md-6">
+                            <img src="/plaster-first.jpg" class="d-block w-100" alt="Gallery Image 4">
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more carousel items as needed -->
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselGallery" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselGallery" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Cookie Banner -->
+<div id="cookieBanner" class="cookie-banner">
+  We use cookies to improve your experience. <a href="privacy.html">Learn more</a>
+  <button id="acceptCookies" class="cookie-button">Accept</button>
+</div>
+
+<script>
+  // Check if cookies have been accepted
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookieBanner').style.display = 'block'; // Show the banner
+  }
+
+  // Accept cookies function
+  document.getElementById('acceptCookies').onclick = function() {
+    localStorage.setItem('cookiesAccepted', 'true'); // Store acceptance
+    document.getElementById('cookieBanner').style.display = 'none'; // Hide banner
+  };
+</script>
+
+<!-- Footer Section -->
+<footer>
+    <div class="container text-center">
+        <p>&copy; 2024 MerchantServices. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.x.com"><i class="fab fa-twitter"></i></a>
+            
+        </div>
+         <div class="quick-links mt-2">
+   <a href="privacy.html" class="text-decoration-none">Privacy Policy</a> |
+   <a href="privacy.html" class="text-decoration-none">Terms of Service</a>
+ </div>
+<footer>
+  <!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
