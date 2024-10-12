@@ -1,0 +1,237 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- jQuery and Bootstrap JS (matching versions) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+    /* Hero section background */
+.hero-section {
+  height: 100vh;
+  background-image: url('/plaster-first.jpg');
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 80px;
+  /* Adjust this value if your navbar height changes */
+}
+        /* Overlay for background image */
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Container for form and advice on hero section */
+        .hero-content {
+            z-index: 2;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            color: white;
+        }
+
+        /* Google Form container styling */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 60%;
+        }
+
+        /* Helpful advice container */
+        .advice-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-left: 30px;
+            width: 35%;
+        }
+
+        .form-container h2, .advice-container h3 {
+            color: #B08D4E;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container iframe {
+            width: 100%;
+            height: 70vh; /* Responsive height */
+            border: none;
+        }
+
+        .advice-container p {
+            text-align: center;
+        }
+
+        /* Navbar styling with semi-transparent background */
+        .navbar {
+            background-color: rgba(68, 68, 68, 0.85); /* Semi-transparent background */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            transition: background-color 0.3s;
+        }
+
+        .navbar-nav a {
+            color: white;
+            font-weight: 500;
+            text-transform: none;
+            font-size: 1.1rem;
+            padding: 10px;
+        }
+
+        .navbar-nav a:hover,
+        .navbar-nav .active {
+            color: #B08D4E;
+        }
+
+        .btn-custom-navbar {
+            background-color: #B08D4E;
+            color: white;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border: none;
+        }
+
+        .btn-custom-navbar:hover {
+            background-color: #A07E44;
+            color: white;
+        }
+
+        /* Optional: Darken the background under the navbar as the user scrolls */
+        .navbar.fixed-navbar {
+            background-color: rgba(68, 68, 68, 0.95);
+        }
+
+        /* Adjust padding to make sure page content doesn't hide under navbar */
+        .content {
+            margin-top: 80px;
+        }
+        /* Footer Section */
+        footer {
+            background-color: #444444;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+        }
+
+        .social-icons a:hover {
+            color: #B08D4E;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .form-container, .advice-container {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">Master Plaster</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                     <li class="nav-item">
+   <a class="nav-link" href="form.html">
+     <button class="btn-custom-navbar">Free Quote</button>
+   </a>
+ </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                const heroSectionHeight = document.querySelector('.hero-section').offsetHeight;
+
+                if (window.scrollY > heroSectionHeight) {
+                    navbar.classList.add('fixed-navbar');
+                } else {
+                    navbar.classList.remove('fixed-navbar');
+                }
+            });
+        </script>
+    </nav>
+
+    <!-- Hero section with Google Form and Advice -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <!-- Google Form Column -->
+            <div class="form-container">
+                <h2>Request a Free Quote</h2>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc9aUsU5OiEmQMqTVLaXTyfwXoNrPmISROJ6vMtGbpV3T3xIg/viewform?embedded=true" width="640" height="640" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+            <!-- Helpful Advice Column -->
+            <div class="advice-container">
+                <h3>Helpful Advice</h3>
+                <p>For a general quotation, please fill out the form. Someone will contact you shortly to provide more information. Please provide as much detail in the description box as you can to receive the best possible quote.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Master Plaster. All Rights Reserved.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
