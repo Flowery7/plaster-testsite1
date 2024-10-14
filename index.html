@@ -509,32 +509,32 @@ footer h5 {
     </nav>
 
 
-  <!-- Carousel with fade effect -->
-      <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false" data-bs-keyboard="false">
+ <!-- Carousel with fade effect -->
+<div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false" data-bs-keyboard="false">
     <div class="carousel-inner">
         <!-- First slide -->
-        <div class="carousel-item active" style="background-image: url('plastering-service.jpg');">
+        <div class="carousel-item active" style="background-image: url('plastering-service.jpg'); background-size: cover; background-position: center;">
             <div class="carousel-caption d-none d-md-block">
                 <h1>Upgrade your old building with a fresh new look.</h1>
                 <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
             </div>
         </div>
         <!-- Second slide -->
-        <div class="carousel-item" style="background-image: url('rendering-services.jpg');">
+        <div class="carousel-item" style="background-image: url('rendering-services.jpg'); background-size: cover; background-position: center;">
             <div class="carousel-caption d-none d-md-block">
                 <h1>Strong lasting render! For a quality finish.</h1>
                 <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
             </div>
         </div>
         <!-- Third slide -->
-        <div class="carousel-item" style="background-image: url('plastering-service.jpg');">
+        <div class="carousel-item" style="background-image: url('plastering-service.jpg'); background-size: cover; background-position: center;">
             <div class="carousel-caption d-none d-md-block">
                 <h1>Transform your space with quality plastering.</h1>
                 <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
             </div>
         </div>
         <!-- Fourth slide -->
-        <div class="carousel-item" style="background-image: url('plastering-halifax.jpg');">
+        <div class="carousel-item" style="background-image: url('plastering-halifax.jpg'); background-size: cover; background-position: center;">
             <div class="carousel-caption d-none d-md-block">
                 <h1>Exceptional plastering services, every time without fail.</h1>
                 <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
@@ -550,6 +550,29 @@ footer h5 {
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
+<!-- CSS for Mobile Compatibility -->
+<style>
+    .carousel-item {
+        height: 100vh; /* Full height for each carousel item */
+    }
+
+    @media (max-width: 768px) {
+        .carousel-caption {
+            bottom: 20%; /* Adjust caption position for mobile */
+            padding: 0 10px; /* Add padding for mobile */
+        }
+
+        .carousel-caption h1 {
+            font-size: 1.5rem; /* Adjust font size for mobile */
+        }
+
+        .btn-custom {
+            font-size: 1rem; /* Adjust button size for mobile */
+            padding: 10px 20px; /* Adjust button padding for mobile */
+        }
+    }
+</style>
 
 <!-- Divider -->
 <hr class="section-divider">
