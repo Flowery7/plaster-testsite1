@@ -26,16 +26,6 @@
     transition: opacity 1s ease-in-out; /* Smooth fade transition */
 }
 
-/* Lighten the overlay for better image visibility */
-.carousel-item::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2); /* Lighten the overlay by reducing opacity */
-}
 
 .carousel-caption {
     z-index: 2;
@@ -51,20 +41,7 @@
 }
 
 /* Button styles */
-.btn-custom {
-    background-color: #B08D4E; /* Match navigation color */
-    color: white; /* Match navigation text color */
-    padding: 5px 15px; /* Match navigation padding */
-    border: none; /* Match navigation border style */
-    border-radius: 20px; /* Match navigation border radius */
-    transition: background-color 0.3s; /* Match navigation transition */
-    text-decoration: none; /* Remove underline */
-}
 
-.btn-custom:hover {
-    background-color: #B08Dee; /* Match navigation hover color */
-    text-decoration: none; /* Maintain no underline on hover */
-}
 
          /* Navbar styling with semi-transparent background */
         .navbar {
@@ -509,34 +486,33 @@ footer h5 {
     </nav>
 
 
- <!-- Carousel with fade effect -->
 <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false" data-bs-keyboard="false">
     <div class="carousel-inner">
         <!-- First slide -->
-        <div class="carousel-item active" style="background-image: url('plastering-service.jpg'); background-size: cover; background-position: center;">
-            <div class="carousel-caption d-none d-md-block">
-                <h1>Upgrade your old building with a fresh new look.</h1>
+        <div class="carousel-item active" style="background-image: url('plastering-service.jpg'); background-size: cover;">
+            <div class="carousel-caption">
+                <h1 class="carousel-text">Upgrade your old building with a fresh new look.</h1>
                 <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
             </div>
         </div>
         <!-- Second slide -->
-        <div class="carousel-item" style="background-image: url('rendering-services.jpg'); background-size: cover; background-position: center;">
-            <div class="carousel-caption d-none d-md-block">
-                <h1>Strong lasting render! For a quality finish.</h1>
+        <div class="carousel-item" style="background-image: url('rendering-services.jpg'); background-size: cover;">
+            <div class="carousel-caption">
+                <h1 class="carousel-text">Strong lasting render! For a quality finish.</h1>
                 <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
             </div>
         </div>
         <!-- Third slide -->
-        <div class="carousel-item" style="background-image: url('plastering-service.jpg'); background-size: cover; background-position: center;">
-            <div class="carousel-caption d-none d-md-block">
-                <h1>Transform your space with quality plastering.</h1>
+        <div class="carousel-item" style="background-image: url('plastering-service.jpg'); background-size: cover;">
+            <div class="carousel-caption">
+                <h1 class="carousel-text">Transform your space with quality plastering.</h1>
                 <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
             </div>
         </div>
         <!-- Fourth slide -->
-        <div class="carousel-item" style="background-image: url('plastering-halifax.jpg'); background-size: cover; background-position: center;">
-            <div class="carousel-caption d-none d-md-block">
-                <h1>Exceptional plastering services, every time without fail.</h1>
+        <div class="carousel-item" style="background-image: url('plastering-halifax.jpg'); background-size: cover;">
+            <div class="carousel-caption">
+                <h1 class="carousel-text">Exceptional plastering services, every time without fail.</h1>
                 <a class="btn btn-custom" href="form.html">Get a Free Quote</a>
             </div>
         </div>
@@ -551,28 +527,52 @@ footer h5 {
     </button>
 </div>
 
-<!-- CSS for Mobile Compatibility -->
 <style>
-    .carousel-item {
-        height: 100vh; /* Full height for each carousel item */
+.carousel-caption {
+    position: absolute;
+    top: 50%;  /* Center vertically */
+    left: 50%;  /* Center horizontally */
+    transform: translate(-50%, -50%);  /* Align center */
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.carousel-text {
+    font-size: 1.5rem;
+}
+
+.btn-custom {
+    background-color: #B08D4E; /* Match navigation color */
+    color: white; /* Match navigation text color */
+    padding: 5px 15px; /* Match navigation padding */
+    border: none; /* Match navigation border style */
+    border-radius: 20px; /* Match navigation border radius */
+    transition: background-color 0.3s; /* Match navigation transition */
+    text-decoration: none; /* Remove underline */
+}
+
+.btn-custom:hover {
+    background-color: #B08Dee; /* Match navigation hover color */
+    text-decoration: none; /* Maintain no underline on hover */
+}
+
+}
+
+@media (max-width: 768px) {
+    .carousel-caption {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .carousel-text {
+        font-size: 1.2rem;
     }
 
-    @media (max-width: 768px) {
-        .carousel-caption {
-            bottom: 20%; /* Adjust caption position for mobile */
-            padding: 0 10px; /* Add padding for mobile */
-        }
-
-        .carousel-caption h1 {
-            font-size: 1.5rem; /* Adjust font size for mobile */
-        }
-
-        .btn-custom {
-            font-size: 1rem; /* Adjust button size for mobile */
-            padding: 10px 20px; /* Adjust button padding for mobile */
-        }
-    }
+}
 </style>
+
+    
 
 <!-- Divider -->
 <hr class="section-divider">
