@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,6 @@
     <title>Your Website</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <!-- jQuery and Bootstrap JS (matching versions) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
@@ -14,19 +13,19 @@
             font-family: 'Poppins', sans-serif;
         }
 
-    /* Hero section background */
-.hero-section {
-  height: 100vh;
-  background-image: url('/plaster-first.jpg');
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin-top: 80px;
-  /* Adjust this value if your navbar height changes */
-}
+        /* Hero section background */
+        .hero-section {
+            height: 100vh;
+            background-image: url('/plaster-first.jpg');
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 80px; /* Adjust if your navbar height changes */
+        }
+
         /* Overlay for background image */
         .hero-section::before {
             content: "";
@@ -44,29 +43,36 @@
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            align-items: center;
+            align-items: stretch; /* Stretch to occupy available height */
             width: 90%;
             max-width: 1200px;
             color: white;
+            padding: 20px 0; /* Add some vertical padding */
         }
 
         /* Google Form container styling */
         .form-container {
             background-color: rgba(255, 255, 255, 0.85);
-            padding: 40px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 60%;
+            display: flex;
+            flex-direction: column; /* Align items vertically */
+            justify-content: center; /* Center form */
         }
 
         /* Helpful advice container */
         .advice-container {
             background-color: rgba(0, 0, 0, 0.7);
-            padding: 40px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin-left: 30px;
             width: 35%;
+            display: flex;
+            flex-direction: column; /* Align items vertically */
+            justify-content: center; /* Center content */
         }
 
         .form-container h2, .advice-container h3 {
@@ -134,11 +140,13 @@
         .content {
             margin-top: 80px;
         }
+
         /* Footer Section */
         footer {
             background-color: #444444;
             color: #fff;
             padding: 20px 0;
+            clear: both; /* Ensure footer stays below content */
         }
 
         .social-icons a {
@@ -154,11 +162,21 @@
         @media (max-width: 768px) {
             .hero-content {
                 flex-direction: column;
+                padding: 10px; /* Reduce padding on mobile */
             }
-            
+
             .form-container, .advice-container {
-                width: 100%;
-                margin: 0;
+                width: 100%; /* Make both containers full width */
+                margin: 10px 0; /* Add margin to separate the columns */
+                height: auto; /* Allow height to adjust based on content */
+            }
+
+            .form-container iframe {
+                height: 50vh; /* Adjust height to fit better on mobile */
+            }
+
+            .footer {
+                margin-top: 20px; /* Add spacing above footer */
             }
         }
     </style>
@@ -183,11 +201,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html#coverage">Contact</a>
                     </li>
-                     <li class="nav-item">
-   <a class="nav-link" href="form.html">
-     <button class="btn-custom-navbar">Free Quote</button>
-   </a>
- </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="form.html">
+                            <button class="btn-custom-navbar">Free Quote</button>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
