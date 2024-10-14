@@ -711,26 +711,22 @@ footer h5 {
     updateGallery();
 </script>
 
-
     
+    <!--Cookie-Banner-->
 <div class="cookie-banner" id="cookieBanner">
     <p>This website uses cookies to ensure you get the best experience on our website. <a href="privacy.html">Learn more</a></p>
-    <button class="btn btn-custom" id="acceptCookies" type="button">Accept</button>
+    <button class="cookie-button" id="acceptCookies" type="button">Accept</button>
 </div>
 
-
 <script>
-  // Check if cookies have been accepted
-  if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookieBanner').style.display = 'block'; // Show the banner
-  }
-
-  // Accept cookies function
-  document.getElementById('acceptCookies').onclick = function() {
-    localStorage.setItem('cookiesAccepted', 'true'); // Store acceptance
-    document.getElementById('cookieBanner').style.display = 'none'; // Hide banner
-  };
+    // Cookie consent logic
+    document.getElementById('acceptCookies').onclick = function() {
+        document.getElementById('cookieBanner').style.display = 'none';
+        // Optionally, you can set a cookie here to remember the user's choice
+        // document.cookie = "cookieConsent=true; max-age=31536000; path=/"; // Cookie expires in 1 year
+    };
 </script>
+    
 
 <!-- Footer Section -->
 <footer>
