@@ -407,55 +407,6 @@ footer h5 {
     margin: 0 auto; /* Ensures proper centering */
 }
 
-.cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #333; /* Dark background */
-    color: #fff; /* White text */
-    padding: 15px; /* Padding around the banner */
-    text-align: center; /* Center text */
-    z-index: 1000; /* Ensure it appears above other content */
-    font-size: 16px; /* Base font size */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-}
-
-/* Link styles */
-.cookie-banner a {
-    color: #88A4E3; /* Match this to your design */
-    text-decoration: underline; /* Underline links */
-}
-
-/* Button styles */
-.cookie-button {
-    background-color: #88A4E3; /* Match this to your design */
-    color: white; /* White text */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Slightly rounded corners */
-    padding: 10px 20px; /* Padding for the button */
-    cursor: pointer; /* Pointer cursor */
-    margin-left: 15px; /* Space between text and button */
-    transition: background-color 0.3s; /* Smooth color transition */
-}
-
-/* Button hover effect */
-.cookie-button:hover {
-    background-color: #7A94C8; /* Darker shade on hover */
-}
-
-/* Responsive styles for mobile */
-@media (max-width: 600px) {
-    .cookie-banner {
-        font-size: 14px; /* Smaller font size for mobile */
-        padding: 10px; /* Reduced padding for smaller screens */
-    }
-
-    .cookie-button {
-        padding: 8px 15px; /* Adjust button padding */
-        font-size: 14px; /* Smaller font size for button */
-    }
-}
 
 
 
@@ -763,19 +714,63 @@ footer h5 {
 </script>
 
     
-    <!--Cookie-Banner-->
-<div class="cookie-banner" id="cookieBanner">
-    <p>This website uses cookies to ensure you get the best experience on our website. <a href="privacy.html">Learn more</a></p>
-    <button class="cookie-button" id="acceptCookies" type="button">Accept</button>
+   <!-- Cookie Banner -->
+<div id="cookie-banner" style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); background-color: rgba(0, 0, 0, 0.85); color: white; padding: 10px 15px; border-radius: 6px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 90%; width: 320px; text-align: center;">
+  <p style="margin: 0; font-size: 12px;">We use cookies to enhance your experience. By continuing, you agree to our <a href="privacy.html" style="color: #EBC931; text-decoration: underline;">Privacy Policy</a>.</p>
+  <div style="display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; justify-content: center;">
+    <button onclick="acceptCookies()" style="background-color: #EBC931; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 12px; transition: background-color 0.3s; width: 70px;">
+      Accept
+    </button>
+    <button onclick="rejectCookies()" style="background-color: #FF4D4D; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 12px; transition: background-color 0.3s; width: 70px;">
+      Reject
+    </button>
+  </div>
 </div>
 
+<!-- JavaScript to Handle Cookie Consent -->
 <script>
-    // Cookie consent logic
-    document.getElementById('acceptCookies').onclick = function() {
-        document.getElementById('cookieBanner').style.display = 'none';
-        // Optionally, you can set a cookie here to remember the user's choice
-        // document.cookie = "cookieConsent=true; max-age=31536000; path=/"; // Cookie expires in 1 year
+  function acceptCookies() {
+    document.cookie = "cookies_accepted=true; path=/; max-age=" + 60 * 60 * 24 * 365; // Expires in 1 year
+    document.getElementById("cookie-banner").style.display = "none";
+    loadCookies();
+  }
+
+  function rejectCookies() {
+    document.cookie = "cookies_accepted=false; path=/; max-age=" + 60 * 60 * 24 * 365; // Expires in 1 year
+    document.getElementById("cookie-banner").style.display = "none";
+    blockCookies();
+  }
+
+  window.onload = function() {
+    if (document.cookie.indexOf("cookies_accepted=true") !== -1) {
+      loadCookies();
+      document.getElementById("cookie-banner").style.display = "none";
+    } else if (document.cookie.indexOf("cookies_accepted=false") !== -1) {
+      blockCookies();
+      document.getElementById("cookie-banner").style.display = "none";
+    }
+  };
+
+  function loadCookies() {
+    var script = document.createElement("script");
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-"; // Replace UA-XXXXX-X with your tracking ID
+    script.async = true;
+    document.head.appendChild(script);
+
+    script.onload = function() {
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-"); // Replace UA-XXXXX-X with your tracking ID
     };
+  }
+
+  function blockCookies() {
+    console.log("Cookies are blocked.");
+  }
 </script>
     
 
