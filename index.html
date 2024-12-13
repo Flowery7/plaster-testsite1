@@ -674,9 +674,13 @@ footer h5 {
 
             <label for="width" style="display: block; margin-bottom: 0.5em;">Width (m):</label>
             <input type="number" id="width" name="width" step="0.1" required style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 4px;">
-
-            <button type="button" id="quoteButton" style="background-color: #ff4d4d; color: white; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer;">Get Quote</button>
         </form>
+
+        <div style="text-align: center; margin-top: 1em;">
+            <button type="button" id="quoteButton" style="background-color: #ff4d4d; color: white; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer; margin-right: 1em;">Get Quote</button>
+            <button type="button" id="resetButton" style="background-color: #ccc; color: black; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer;">Reset</button>
+        </div>
+
         <div id="quoteResult" class="result" style="margin-top: 1.5em; font-size: 1.2em; color: #333;"></div>
     </div>
 </section>
@@ -684,8 +688,9 @@ footer h5 {
 <script>
 // Wait for the DOM content to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Attach event listener to the button when DOM is ready
+    // Attach event listener to the buttons when DOM is ready
     document.getElementById('quoteButton').addEventListener('click', getQuote);
+    document.getElementById('resetButton').addEventListener('click', resetForm);
 });
 
 function getQuote() {
@@ -724,8 +729,13 @@ function getQuote() {
         <p>Total including tax: £${(finalQuote + taxValue).toFixed(2)}</p>
     `;
 }
-</script>
 
+function resetForm() {
+    // Reset the form inputs and result display
+    document.getElementById('quoteForm').reset();
+    document.getElementById('quoteResult').innerHTML = '';
+}
+</script>
 
 
     
