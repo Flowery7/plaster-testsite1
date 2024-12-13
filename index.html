@@ -663,6 +663,57 @@ footer h5 {
 
 
 
+<!-- Quote Generator Section -->
+<section id="quote-generator" style="padding: 4em 2em; background-color: #f9f9f9; text-align: center;">
+    <h2>Instant Quote Generator</h2>
+    <p>Calculate an estimate for your plastering needs in just a few clicks!</p>
+    <div class="container" style="max-width: 500px; margin: 0 auto; background-color: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <form id="quoteForm" style="text-align: left;">
+            <label for="length" style="display: block; margin-bottom: 0.5em;">Height (m):</label>
+            <input type="number" id="length" name="length" step="0.1" required style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 4px;">
+
+            <label for="width" style="display: block; margin-bottom: 0.5em;">Width (m):</label>
+            <input type="number" id="width" name="width" step="0.1" required style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 4px;">
+
+            <div style="display: flex; justify-content: center; gap: 1em;">
+                <button type="button" id="quoteButton" style="background-color: #ff4d4d; color: white; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer;">Get Quote</button>
+                <button type="reset" id="resetButton" style="background-color: #ccc; color: #333; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer;">Reset</button>
+            </div>
+        </form>
+        <div id="quoteResult" class="result" style="margin-top: 1.5em; font-size: 1.2em; color: #333;"></div>
+    </div>
+</section>
+
+<script>
+    // Wait for the DOM content to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Attach event listener to the "Get Quote" button when DOM is ready
+        document.getElementById('quoteButton').addEventListener('click', getQuote);
+    });
+
+    function getQuote() {
+        // Retrieve input values for length and width
+        const length = parseFloat(document.getElementById('length').value);
+        const width = parseFloat(document.getElementById('width').value);
+
+        // Validate the inputs
+        if (isNaN(height) || isNaN(width) || height <= 0 || width <= 0) {
+            document.getElementById('quoteResult').textContent = "Please enter valid positive numbers for length and width.";
+            return;
+        }
+
+        // Calculate the area and estimate (adjust multiplier as needed)
+        const area = height * width;
+        const estimate = area * 20; // Example: £20 per square meter
+
+        // Display the result
+        document.getElementById('quoteResult').textContent = `Estimated Cost: £${estimate.toFixed(2)} (for ${area.toFixed(2)} m²)`;
+    }
+</script>
+
+
+    
+
 <!-- Gallery Section -->
 <section id="gallery" class="gallery-section">
     <div class="container">
