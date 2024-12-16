@@ -12,7 +12,7 @@
     <meta name="referrer" content="no-referrer">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     
-  <title>Plastering Website</title>
+  <title>Master Plaster | Plastering Yorkshire</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
@@ -23,7 +23,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <style>
 
-    body {
+  body {
       font-family: 'Poppins', sans-serif;
     }
 
@@ -35,16 +35,15 @@
     transition: opacity 1s ease-in-out; /* Smooth fade transition */
 }
 
-.carousel-title {
-    color: white;           /* White text */
-    font-size: 3rem;      /* Larger font size */
-    margin-bottom: 10px;    /* Space between title and carousel text */
-    font-weight: bold;      /* Bold for emphasis */
-}
-
-.carousel-text {
-    font-size: 1.3rem;      /* Slightly smaller than the title */
-    color: white;           /* Keep the existing white text color */
+/* Lighten the overlay for better image visibility */
+.carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Lighten the overlay by reducing opacity */
 }
 
 .carousel-caption {
@@ -55,17 +54,43 @@
 
 /* Reduce h1 text size by 50% */
 .carousel-caption h1 {
-    font-size: 1.2rem; /* 50% of the original 3rem */
+    font-size: 1.5rem; /* 50% of the original 3rem */
     font-weight: 600;
     color: white;
 }
 
 /* Button styles */
+.btn-custom {
+    background-color: #B08D4E; /* Match navigation color */
+    color: white; /* Match navigation text color */
+    padding: 10px 20px; /* Adjusted padding for more balanced button */
+    border: 0.3px solid #333; /* Dark grey outline */
+    border-radius: 20px; /* Rounded corners for a sleek look */
+    transition: all 0.3s ease; /* Smooth transition for all changes */
+    text-decoration: none; /* Remove underline */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow for more depth */
+}
+
+.btn-custom:hover {
+    background-color: #A07E44; /* Slightly darker color on hover */
+    transform: translateY(-2px); /* Lift the button more on hover */
+    border: 0.3px solid #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover for more emphasis */
+    text-decoration: none; /* Maintain no underline on hover */
+}
+
+.btn-custom:active {
+    transform: translateY(1px); /* Stronger press effect */
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow when clicked */
+}
+
+
 
 
          /* Navbar styling with semi-transparent background */
         .navbar {
-            background-color: rgba(60, 64, 63); /* Semi-transparent background */
+            background-color: rgba(68, 68, 68, 0.85); /* Semi-transparent background */
             position: fixed;
             top: 0;
             left: 0;
@@ -89,19 +114,31 @@
         }
 
         .btn-custom-navbar {
-            background-color: #B08D4E;
-            color: white;
-            border-radius: 20px;
-            padding: 5px 15px;
-            font-size: 1.1rem;
-            font-weight: 500;
-            border: none;
-        }
+    background-color: #B08D4E; /* Match navigation color */
+    color: white; /* Match navigation text color */
+    border-radius: 20px; /* Rounded corners for a sleek look */
+    padding: 5px 10px; /* Adjust padding for a more balanced button */
+    font-size: 1.1rem; /* Font size for readability */
+    font-weight: 500; /* Slightly bold text */
+    border: 0.3px solid #333; /* Dark grey outline */
+    transition: all 0.3s ease; /* Smooth transition for all changes */
+    text-decoration: none; /* Remove underline */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
 
-        .btn-custom-navbar:hover {
-            background-color: #A07E44;
-            color: white;
-        }
+.btn-custom-navbar:hover {
+    background-color: #A07E44; /* Slightly darker color on hover */
+    transform: translateY(-1px); /* Lift the button more on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+    border: 0.3px solid #fff; /* Slightly lighter dark grey border on hover */
+    text-decoration: none; /* Maintain no underline on hover */
+}
+
+.btn-custom-navbar:active {
+    transform: translateY(2px); /* Stronger press effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow when clicked */
+    border: 2px solid #333; /* Keep dark grey border when clicked */
+}
 
         /* Optional: Darken the background under the navbar as the user scrolls */
         .navbar.fixed-navbar {
@@ -112,6 +149,19 @@
         .content {
             margin-top: 80px;
         }
+    
+    .carousel-item {
+    height: 100vh; /* Full height */
+    background-size: cover; /* Cover the area */
+    background-position: center; /* Center the background */
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    height: 60vh;
+    /* Adjusted height for mobile devices */
+  }
+}
     
     /* Section Divider */
 .section-divider {
@@ -129,7 +179,7 @@
 .plastering-info {
   position: relative;
   height: 100vh;
-  background-image: url('plaster-first.jpg'); 
+  background-image: url('/plaster-first.jpg'); 
   background-attachment: fixed; /* Parallax effect */
   background-position: center;
   background-repeat: no-repeat;
@@ -177,6 +227,7 @@
   padding: 0 20px; /* Add some padding */
 }
 
+
 .coverage-section {
   background-color: #f0f0f0; /* Light gray for better contrast */
   padding: 40px 20px;
@@ -187,11 +238,28 @@
   background-color: #B08D4E; /* Matching the button color */
   color: white; /* White text color for contrast */
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow for elevation */
-  height: 100%; /* Same height for uniformity */
+  border-radius: 20px; /* Rounded corners for a sleek look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  height: 100%; /* Ensures uniform height */
   position: relative; /* For additional effects */
   overflow: hidden; /* Ensures rounded corners are preserved */
+  border: 0.3px solid #333; /* Dark grey border for button-like effect */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.coverage-section .text-container:hover,
+.coverage-section .testimonials-container:hover {
+  background-color: #A07E44; /* Slightly darker on hover */
+  transform: translateY(-4px); /* Slight lift on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  border: 0.3px solid #fff; /* Lighter dark grey border on hover */
+}
+
+.coverage-section .text-container:active,
+.coverage-section .testimonials-container:active {
+  transform: translateY(2px); /* Stronger press effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow when clicked */
+  border: 0.3px solid #fff; /* Keep dark grey border when clicked */
 }
 
 .section-title {
@@ -221,6 +289,7 @@
   margin-right: 10px; /* Space between icon and text */
   color: #FFC107; /* Gold color for icons */
 }
+
 
 .contact-title {
   margin-top: 20px; /* Space above contact title */
@@ -297,13 +366,29 @@
 }
 
 .service-header {
-    background-color: #B08D4E; /* Match this color with your button color */
-    padding: 10px;
-    border-radius: 5px 5px 0 0; /* Rounded top corners */
-    color: #fff; /* White text color */
-    text-align: center; /* Center align text */
-    margin-bottom: 10px; /* Space below header */
+  background-color: #B08D4E; /* Match this color with your button color */
+  padding: 10px;
+  border-radius: 5px 5px 0 0; /* Rounded top corners */
+  color: #fff; /* White text color */
+  text-align: center; /* Center align text */
+  margin-bottom: 10px; /* Space below header */
+  border: 0.3px solid #333; /* Dark grey border for a button-like effect */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
+
+.service-header:hover {
+  background-color: #A07E44; /* Slightly darker on hover */
+  transform: translateY(-4px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+  border: 0.3px solid #fff; /* Lighter grey border on hover */
+}
+
+.service-header:active {
+  transform: translateY(2px); /* Press effect when clicked */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Softer shadow on click */
+  border: 0.3px solid #333; /* Keep dark grey border when clicked */
+}
+
 
 .service-image {
     max-width: 100%; /* Responsive image */
@@ -311,12 +396,12 @@
 }
 .services-section {
     padding: 30px 0; /* Reduced padding */
+    
+    
 }
-
 .gallery-section {
     padding: 60px 0;
 }
-
 .gallery-container {
     display: flex;
     align-items: center;
@@ -327,7 +412,7 @@
 .left-arrow, .right-arrow {
     background-color: transparent;
     border: none;
-    font-size: 0.8rem;
+    font-size: 2rem;
     cursor: pointer;
     color: #88A4E3; /* Custom color for arrows */
     position: absolute;
@@ -346,14 +431,12 @@
 
 .image-wrapper {
     position: relative; /* Needed for positioning the button */
-    overflow: hidden; /* Prevents overflow of image */
 }
 
 #galleryImg {
     max-width: 100%;
     height: auto;
     border-radius: 15px; /* Softened corners */
-    transition: opacity 0.3s ease; /* Smooth opacity transition */
 }
 
 .get-quote-btn {
@@ -361,20 +444,31 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #B08D4E; /* Button color */
+    background-color: #A07E44; /* Button color */
     color: white;
     padding: 10px 20px;
-    border: none;
+    border: 0.3px solid #333; /* Dark grey border */
     border-radius: 5px; /* Rounded corners */
     text-decoration: none;
     font-size: 1rem;
     opacity: 0.8; /* Subtle transparency */
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease; /* Smooth transition for all effects */
 }
 
 .get-quote-btn:hover {
     opacity: 1; /* Full visibility on hover */
+    background-color: #8F6D35; /* Slightly darker on hover */
+    transform: translateX(-50%) translateY(-4px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+    border: 0.3px solid #fff; /* Lighter grey border on hover */
 }
+
+.get-quote-btn:active {
+    transform: translateX(-50%) translateY(2px); /* Press effect when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Softer shadow on click */
+    border: 0.3px solid #fff; /* Keep dark grey border when clicked */
+}
+
 
 
 footer {
