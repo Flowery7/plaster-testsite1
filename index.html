@@ -757,28 +757,26 @@ footer h5 {
 
 
 
-<!-- Quote Generator Section -->
-<section id="quote-generator" style="padding: 4em 2em; background-color: #f9f9f9; text-align: center;">
-    <h2>Quick Quote</h2>
-    <p>Simply add the measurements from the walls you would like plastering - both height and width. Get a quick estimate and give us a call.</p>
-    <div class="container" style="max-width: 500px; margin: 0 auto; background-color: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+<!-- Quote Generator and Pricing Breakdown Section -->
+<section id="quote-section" style="display: flex; justify-content: space-between; padding: 4em 2em; background-color: #f9f9f9;">
+
+    <!-- Quote Generator Section -->
+    <div id="quote-generator" style="flex: 1; max-width: 45%; padding: 2em; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2>Quote Generator</h2>
+        <p>Calculate an estimate for your plastering needs in just a few clicks!</p>
         <form id="quoteForm" style="text-align: left;">
             <label for="length" style="display: block; margin-bottom: 0.5em;">Height (m):</label>
             <input type="number" id="length" name="length" step="0.1" required style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 4px;">
 
             <label for="width" style="display: block; margin-bottom: 0.5em;">Width (m):</label>
             <input type="number" id="width" name="width" step="0.1" required style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 4px;">
+
+            <button type="button" id="quoteButton" style="background-color: #ff4d4d; color: white; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer;">Get Quote</button>
         </form>
-
-        <div style="text-align: center; margin-top: 1em;">
-            <button type="button" id="quoteButton" style="background-color: #ff4d4d; color: white; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer; margin-right: 1em;">Get Quote</button>
-            <button type="button" id="resetButton" style="background-color: #ccc; color: black; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer;">Reset</button>
-        </div>
-
         <div id="quoteResult" class="result" style="margin-top: 1.5em; font-size: 1.2em; color: #333;"></div>
     </div>
 
- <!-- Pricing Breakdown Section -->
+    <!-- Pricing Breakdown Section -->
     <div id="pricing-breakdown" style="flex: 1; max-width: 45%; padding: 2em; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
         <h2>Plastering Cost Breakdown</h2>
         <p>Here’s a breakdown of how your quote is calculated:</p>
@@ -786,8 +784,9 @@ footer h5 {
     <!-- Content inside the cost box -->
 
 
-            <h3>Labour cost per sq metre</h3>
-            <p>£6.00</p>
+
+            <h3>Labour </h3>
+            <p>£6.00 per m²</p>
        
             <h3>Materials</h3>
             <p>£6.50 per m²</p>
