@@ -756,9 +756,8 @@ footer h5 {
 </section>
 
 
-
 <!-- Quote Generator and Pricing Breakdown Section -->
-<section id="quote-section" style="display: flex; justify-content: space-between; padding: 4em 2em; background-color: #f9f9f9;">
+<section id="quote-section" style="display: flex; flex-wrap: wrap; justify-content: space-between; padding: 4em 2em; background-color: #f9f9f9; gap: 2em;">
 
     <!-- Quote Generator Section -->
     <div id="quote-generator" style="flex: 1; max-width: 45%; padding: 2em; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -771,8 +770,8 @@ footer h5 {
             <label for="width" style="display: block; margin-bottom: 0.5em;">Width (m):</label>
             <input type="number" id="width" name="width" step="0.1" required style="width: 100%; padding: 0.5em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 4px;">
 
-               <button type="button" id="quoteButton" style="background-color: #4CAF50; color: white; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer;">Get Quote</button>
-   <button type="reset" id="resetButton" style="background-color: #ff4d4d; color: white; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer; margin-left: 1em;">Reset</button>
+            <button type="button" id="quoteButton" style="background-color: #4CAF50; color: white; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer;">Get Quote</button>
+            <button type="reset" id="resetButton" style="background-color: #ff4d4d; color: white; border: none; padding: 0.6em 1.5em; border-radius: 5px; font-size: 1em; cursor: pointer; margin-left: 1em;">Reset</button>
         </form>
         <div id="quoteResult" class="result" style="margin-top: 1.5em; font-size: 1.2em; color: #333;"></div>
     </div>
@@ -782,13 +781,9 @@ footer h5 {
         <h2 class="text-center mb-4" style="color: grey;">Plastering cost breakdown</h2>
         <p>Here’s a breakdown of how your quote is calculated:</p>
         <div class="cost-box" style="background-color: #B08D4E; color: white; padding: 1.5em; margin-bottom: 1.5em; border-radius: 5px; text-align: center; border: 0.3px solid #333; opacity: 1; transition: all 0.3s ease;">
-    <!-- Content inside the cost box -->
-
-
-
-            <h3>Labour </h3>
+            <h3>Labour</h3>
             <p>£6.00 per m²</p>
-       
+
             <h3>Materials</h3>
             <p>£6.50 per m²</p>
 
@@ -797,10 +792,24 @@ footer h5 {
         </div>
         <p style="font-size: 1.1em; color: #333;">This breakdown gives you an overview of the various costs involved, including the hourly rate, materials required, and any additional travel fees. We aim to provide transparency with your estimate!</p>
     </div>
-
-
-    
 </section>
+
+<!-- CSS -->
+<style>
+    /* Responsive layout for smaller screens */
+    @media (max-width: 768px) {
+        #quote-section {
+            flex-direction: column; /* Stack the sections vertically */
+        }
+
+        #quote-generator,
+        #pricing-breakdown {
+            max-width: 100%; /* Full width for each section */
+        }
+    }
+</style>
+
+
 
 <script>
 // Wait for the DOM content to be fully loaded
