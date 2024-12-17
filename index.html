@@ -794,17 +794,19 @@ footer h5 {
     </div>
 </section>
 
-<!-- CSS -->
 <style>
     /* Responsive layout for smaller screens */
     @media (max-width: 768px) {
         #quote-section {
             flex-direction: column; /* Stack the sections vertically */
+            align-items: center; /* Center items in the column layout */
         }
 
         #quote-generator,
         #pricing-breakdown {
-            max-width: 100%; /* Full width for each section */
+            max-width: 100%; /* Full width */
+            width: 100%; /* Ensure it stretches to the full width */
+            padding: 2em 1em; /* Adjust padding to prevent overflow */
         }
     }
 </style>
