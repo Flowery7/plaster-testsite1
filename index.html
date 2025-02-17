@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +56,7 @@
 /* Reduce h1 text size by 50% */
 .carousel-caption h1 {
     font-size: 1.5rem; /* 50% of the original 3rem */
-    font-weight: 600;
+    font-weight: 400;
     color: white;
 }
 
@@ -511,7 +512,10 @@ footer h5 {
   <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand text-white" href="#">Master Plaster</a>
+            <a class="navbar-brand text-white" href="#">
+  <img src="/logo_master_plaster.png" alt="Master Plaster Logo" style="height: 60px; width: auto; margin-right: 10px;">
+  Master Plaster
+</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -866,6 +870,94 @@ function resetForm() {
 </script>
 
 
+
+    
+    
+    
+    
+  <div class="info-slider">
+    <div class="tabs">
+        <button class="tab" onclick="showCard(1)">1</button>
+        <button class="tab" onclick="showCard(2)">2</button>
+        <button class="tab" onclick="showCard(3)">3</button>
+        <button class="tab" onclick="showCard(4)">4</button>
+        <button class="tab" onclick="showCard(5)">5</button>
+    </div>
+    <div class="cards">
+        <div class="card" id="card-1">
+            <h3 style="color: #FFC107;">Plastering & Rendering</h3>
+            <p>Plastering and rendering are essential techniques in construction and renovation, each serving a specific purpose. Plastering is applied to interior walls and ceilings to create a smooth, durable surface ready for decoration. It improves insulation and enhances the aesthetic appeal of indoor spaces. Rendering, on the other hand, is used on exterior walls to provide weather resistance and a strong, long-lasting finish. It also enhances curb appeal and protects buildings from moisture and environmental damage. Both techniques require skill and precision to ensure a flawless finish that stands the test of time.</p>
+        </div>
+        <div class="card" id="card-2">
+            <h3 style="color: #FFC107;">Professional Plasrering</h3>
+            <p>Hiring a professional plasterer ensures a high-quality finish that improves the longevity and appearance of your walls. Skilled plastering prevents cracks and uneven surfaces, creating a perfect base for painting or wallpapering. High-quality plaster also improves thermal efficiency, helping to regulate indoor temperatures and reduce energy costs. Additionally, soundproofing benefits can be achieved with specialist plastering techniques, making it ideal for homes, offices, and commercial spaces. Whether repairing existing walls or working on a new build, professional plastering enhances both durability and aesthetics.</p>
+        </div>
+        <div class="card" id="card-3">
+            <h3 style="color: #FFC107;">External </h3>
+            <p>Rendering is crucial for protecting a building’s exterior from the elements. A professionally applied render acts as a barrier against rain, wind, and temperature changes, preventing cracks and structural damage. It also reduces the risk of dampness and mould growth, preserving the integrity of the property. Modern rendering options, such as silicone and acrylic renders, offer flexible and breathable solutions that resist cracking and fading. By investing in rendering, homeowners and business owners can improve both the strength and appearance of their buildings, adding value to the property.</p>
+        </div>
+        <div class="card" id="card-4">
+            <h3 style="color: #FFC107;">Styles</h3>
+            <p>There are various types of plaster and render finishes to suit different needs and styles. Smooth plaster is ideal for modern interiors, while textured finishes add character to walls. For rendering, traditional sand and cement are popular for their strength, whereas modern silicone renders offer a sleek, low-maintenance alternative. Other finishes, such as pebble dash and monocouche, provide unique aesthetics and added durability. Choosing the right finish depends on the project’s requirements, the property’s style, and maintenance preferences.</p>
+        </div>
+        <div class="card" id="card-5">
+            <h3 style="color: #FFC107;">Maintenance</h3>
+
+            <p>Proper maintenance ensures the longevity of plastered and rendered surfaces. Interior plaster should be kept dry and clean, with occasional touch-ups for minor cracks. Exterior rendering requires periodic inspections to check for signs of wear, such as hairline cracks or water damage. Cleaning rendered walls with a soft brush or gentle pressure washing helps maintain their appearance. Applying sealants or repainting with breathable masonry paint can further protect the surface. Regular maintenance not only preserves the quality of the finish but also extends the lifespan of the walls, keeping them looking their best.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.info-slider {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.tab {
+    background: #FFC107;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    color: white;
+}
+.tab:hover {
+    background: #6C8CD5;
+}
+.cards .card {
+    display: none;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: white;
+}
+.cards .card.active {
+    display: block;
+}
+</style>
+
+<script>
+function showCard(cardNumber) {
+    document.querySelectorAll('.card').forEach(card => {
+        card.classList.remove('active');
+    });
+    document.getElementById('card-' + cardNumber).classList.add('active');
+}
+// Show the first card by default
+showCard(1);
+</script>
+
+    
+    
+    
     
     
 
