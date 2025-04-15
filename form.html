@@ -50,10 +50,10 @@
             padding: 20px 0; /* Add some vertical padding */
         }
 
-        /* Google Form container styling */
+        /* Custom Form container styling */
         .form-container {
             background-color: rgba(255, 255, 255, 0.85);
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 60%;
@@ -81,14 +81,44 @@
             margin-bottom: 20px;
         }
 
-        .form-container iframe {
-            width: 100%;
-            height: 70vh; /* Responsive height */
-            border: none;
-        }
-
         .advice-container p {
             text-align: center;
+        }
+
+        /* Form styling */
+        .custom-form .form-control {
+            border-radius: 5px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .custom-form textarea.form-control {
+            min-height: 120px;
+        }
+
+        .custom-form .btn-submit {
+            background-color: #B08D4E;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .custom-form .btn-submit:hover {
+            background-color: #A07E44;
+        }
+
+        /* Success message */
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #28a745;
+            font-weight: 500;
+            margin-top: 20px;
         }
 
         /* Navbar styling with semi-transparent background */
@@ -171,10 +201,6 @@
                 height: auto; /* Allow height to adjust based on content */
             }
 
-            .form-container iframe {
-                height: 50vh; /* Adjust height to fit better on mobile */
-            }
-
             .footer {
                 margin-top: 20px; /* Add spacing above footer */
             }
@@ -226,13 +252,30 @@
         </script>
     </nav>
 
-    <!-- Hero section with Google Form and Advice -->
+    <!-- Hero section with Custom Form and Advice -->
     <section class="hero-section">
         <div class="hero-content">
-            <!-- Google Form Column -->
+            <!-- Custom Form Column -->
             <div class="form-container">
                 <h2>Request a Free Quote</h2>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSePuYKng7eddcGkBQSaberGVewr580NEL2DQ-lFgW-LEC2wBg/viewform?embedded=true" width="640" height="640" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <form id="quoteForm" class="custom-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="message" name="message" placeholder="Your Message (Please provide details about your project)" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Submit Request</button>
+                    <div id="successMessage" class="success-message">
+                        Thank you! Your request has been submitted. We'll contact you shortly.
+                    </div>
+                </form>
             </div>
             <!-- Helpful Advice Column -->
             <div class="advice-container">
@@ -257,6 +300,50 @@
  </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Replace with your AWS Lambda endpoint URL
+            const lambdaEndpoint = 'YOUR_AWS_LAMBDA_ENDPOINT_URL';
+            
+            // Send data to AWS Lambda
+            fetch(lambdaEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('successMessage').style.display = 'block';
+                    // Reset form
+                    document.getElementById('quoteForm').reset();
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error submitting your form. Please try again.');
+            });
+        });
+    </script>
 
 </body>
 </html>
